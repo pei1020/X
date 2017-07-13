@@ -39,7 +39,7 @@ app.get('/infolist/:id', function(req, res){
 app.get('/infolist', function(req, res){
     var count = req.query.num;
      console.log(count);
-    db.infolist.aggregate({$limit: + count}, function (err, lists) {
+    db.infolist.aggregate({$sort: {_id: -1}}, {$limit: + count}, function (err, lists) {
         res.json(lists);
     });
 });

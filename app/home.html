@@ -13,7 +13,7 @@
         <tr ng-repeat = "list in lists">
             <td>{{list.firstName}}</td>
             <td>{{list.lastName}}</td>
-            <td>{{list.submissionDate}}</td>
+            <td>{{list.submissionDate | date: 'yyyy-MM-dd'}}</td>
             <td>{{list.rating}}</td>
             <td>{{list.feedback}}</td>
         </tr>

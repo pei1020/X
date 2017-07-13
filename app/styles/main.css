@@ -124,7 +124,7 @@ body {
 
 }
 button {
-  position: fixed;
+  position: absolute;
   display: center;
 }
 
@@ -133,6 +133,6 @@ table{
 }
 
 md-content {
-  height: 750px;
+  height: 700px;
 }
 

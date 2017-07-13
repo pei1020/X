@@ -29,23 +29,13 @@ angular.module('myController', [])
               url: '/infolist',
               params: {"num": 3}
           }).then(function successCallback(response) {
+              count = 6;
               console.log(response);
               $scope.lists = response.data;
           });
       };
+
       
-
-      // totalRating = totalRating + response.data.rating;
-      // for(var i = 0; i < response.data.length; i++){
-      //     totalRating = totalRating + response.data[i].rating;
-      //     // console.log(totalRating);
-      // }
-      // // console.log(response.data.length);
-      // $scope.avgRating = totalRating / response.data.length;
-
-
-      // totalRating = 0;
-      // count = 3;
 
        refresh();
 
