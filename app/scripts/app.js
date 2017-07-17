@@ -22,20 +22,6 @@ angular
   ])
   .config(['$routeProvider', function ($routeProvider) {
 
-      // var routeConfig = {
-      //     controller: 'MainCtrl',
-      //     templateUrl: 'feedback.html',
-      //     resolve: {
-      //         store: function (infoStorage) {
-      //             // Get the correct module (API or localStorage).
-      //             return infoStorage.then(function (module) {
-      //                 module.get(); // Fetch the todo records in the background.
-      //                 return module;
-      //             });
-      //         }
-      //     }
-      // };
-
     $routeProvider
       .when('/', {
         templateUrl: 'index.html',
@@ -43,7 +29,7 @@ angular
         controllerAs: 'main'
       })
       .when('/feedback', {
-        templateUrl: 'feedback.html',
+        templateUrl: 'views/feedback.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
@@ -51,5 +37,4 @@ angular
         redirectTo: '/'
       });
 
-      // $qProvider.errorOnUnhandledRejections(false);
   }]);

@@ -8,7 +8,10 @@
  * Controller of the desktopApp
  */
 angular.module('myController', [])
-  .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('MainCtrl', ['$scope', '$http', 'ServiceCtrl', function ($scope, $http, ServiceCtrl) {
+
+
+      $scope.lists = [];
 
       $scope.radioData = [
           { label: '1', value: 1 },
@@ -18,54 +21,70 @@ angular.module('myController', [])
           { label: '5', value: 5 }
       ];
 
+      //refresh the page
+       ServiceCtrl.refresh(function(response){
+           $scope.lists= response;
+            count = 6;
+       });
 
-      $scope.lists = [];
-      var totalRating;
-      var count = 6;
-
-      var refresh = function() {
-          $http({
-              method: 'GET',
-              url: '/infolist',
-              params: {"num": 3}
-          }).then(function successCallback(response) {
-              count = 6;
-              console.log(response);
-              $scope.lists = response.data;
+      //add new activity
+      $scope.add = function(user){
+          ServiceCtrl.add(user);
+          ServiceCtrl.refresh(function(response){
+              $scope.lists = response;
           });
-      };
-
-      
-
-       refresh();
-
-
-      $scope.add = function (user) {
-          $http({
-              method: 'POST',
-              url: '/infolist',
-              data: user
-          }).then(function successCallback(){
-              // console.log('PUT requested');
-               refresh();
-               // console.log($scope.lists);
-
-          });
-          this.userForm.$setUntouched();
           this.user = {}; //changed this to object from array!!!!
+          this.userForm.$setUntouched();
           this.userForm.$setPristine();
-
       };
 
-      $scope.more = function() {
-          $http({
-              method: 'GET',
-              url: '/infolist',
-              params: {"num": count}
-          }).then(function successCallback(response) {
-              count = count + 3;
-              $scope.lists = response.data;
-          })
 
-      }
+      //view more
+      $scope.more = function(){
+          ServiceCtrl.more(function(response){
+            $scope.lists = response;
+          });
+      };
+
+
+      // $scope.add = function (user) {
+      //     $http({
+      //         method: 'POST',
+      //         url: '/infolist',
+      //         data: user
+      //     }).then(function successCallback(){
+      //         // console.log('PUT requested');
+      //          refresh();
+      //          // console.log($scope.lists);
+      //
+      //     });
+      //     this.userForm.$setUntouched();
+      //     this.user = {}; //changed this to object from array!!!!
+      //     this.userForm.$setPristine();
+      //
+      // };
+
+      // var refresh = function() {
+      //     $http({
+      //         method: 'GET',
+      //         url: '/infolist',
+      //         params: {"num": 3}
+      //     }).then(function successCallback(response) {
+      //         count = 6;
+      //         console.log(response);
+      //         $scope.lists = response.data;
+      //     });
+      // };
+
+      // $scope.more = function() {
+      //     $http({
+      //         method: 'GET',
+      //         url: '/infolist',
+      //         params: {"num": count}
+      //     }).then(function successCallback(response) {
+      //         count = count + 3;
+      //         $scope.lists = response.data;
+      //     })
+      //
+      // }
   }]);

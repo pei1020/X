@@ -17,18 +17,22 @@
       <md-tabs md-dynamic-height md-border-bottom>
         <md-tab label="Home">
           <md-content class="md-padding">
-            <div ng-include src="'home.html'"></div>
+            <div ng-include src="'views/home.html'"></div>
           </md-content>
         </md-tab>
         <!--<md-tab label="Transportation">-->
 
         <!--</md-tab>-->
 
-        <md-tab label = "Weather"></md-tab>
+        <md-tab label = "Map">
+        <md-content>
+          <div ng-include src = "'views/map.html'"></div>
+        </md-content>
+        </md-tab>
 
         <md-tab label="Contact Us" >
           <md-content>
-           <div ng-include src = "'/feedback.html'"></div>
+           <div ng-include src = "'views/feedback.html'"></div>
           </md-content>
         </md-tab>
       </md-tabs>
@@ -74,7 +78,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
         <script src="scripts/controllers/main.js"></script>
-  <script src="scripts/services.js"></script>
+  <script src="scripts/service.js"></script>
         <!--<script src="scripts/controllers/about.js"></script>-->
   <script src="scripts/app.js"></script>
         <!-- endbuild -->
