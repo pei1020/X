@@ -15,6 +15,7 @@ angular
       'ngAria',
       'myController',
       'myService',
+      'mapController',
       'ngCookies',
       'ngMessages',
       'ngRoute',
@@ -33,6 +34,12 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+
+        .when('/map', {
+            templateUrl: 'views/map.html',
+            controller: 'MapCtrl',
+            controllerAs: 'map'
+        })
       .otherwise({
         redirectTo: '/'
       });

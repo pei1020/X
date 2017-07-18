@@ -24,7 +24,6 @@ angular.module('myController', [])
       //refresh the page
        ServiceCtrl.refresh(function(response){
            $scope.lists= response;
-            count = 6;
        });
 
       //add new activity

@@ -9,7 +9,7 @@ angular.module('myService', [])
             $http({
                 method: 'GET',
                 url: '/infolist',
-                params: {"num": 3}
+                params: {"num": 3, "skip": 's'}
             }).then(function successCallback(response) {
                 // count = 6;
                 callback(response.data);
@@ -33,11 +33,23 @@ angular.module('myService', [])
             $http({
                 method: 'GET',
                 url: '/infolist',
-                params: {"num": count}
+                params: {"num": count, "skip": 's'}
             }).then(function successCallback(response) {
                 count = count + 3;
                 callback(response.data);
             });
         };
+
+
+        this.getLocation = function(callback){
+            $http({
+                method: 'GET',
+                url: '/infolist',
+                params: {"skip": 'n'}
+            }).then(function successCallback(response){
+                callback(response.data);
+            })
+        }
+
 
     }]);

@@ -75,12 +75,16 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-        <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/map.js"></script>
   <script src="scripts/service.js"></script>
-        <!--<script src="scripts/controllers/about.js"></script>-->
   <script src="scripts/app.js"></script>
+  <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>-->
+  <!--<script src="http://rawgit.com/nmccready/angular-simple-logger/master/dist/angular-simple-logger.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.2.1/angular-google-maps.min.js"></script>-->
+  <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVOmjZXcVrOIKxMBea8fod4jX-9G3j1zE&callback&libraries=geometry,places">
+  </script>
         <!-- endbuild -->
 </body>
 </html>

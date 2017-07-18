@@ -14,7 +14,7 @@
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Last Name (Required)</label>
                         <input ng-model="user.lastName" required>
-                        <div ng-messages='user.firstName.$error' ng-if='user.firstName.$dirty'>
+                        <div ng-messages='user.lastName.$error' ng-if='user.lastName.$dirty'>
                             <div ng-messages='required'>Required field</div>
                         </div>
                     </md-input-container>
@@ -37,29 +37,38 @@
 
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
-                        <label>Postal Code</label>
-                        <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-                                ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+                        <!--<label>Postal Code</label>-->
+                        <!--<input name="postalCode" ng-model="user.postalCode" placeholder="12345"-->
+                                <!--ng-pattern="/^[0-9]{5}$/" md-maxlength="5">-->
 
-                        <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-                            <div ng-message="required" class="my-message">You must supply a postal code.</div>
-                            <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                                code.
-                            </div>
-                            <div ng-message="md-maxlength" class="my-message">
-                                Don't use the long version silly...we don't need to be that specific...
-                            </div>
-                        </div>
+                        <!--<div ng-messages="userForm.postalCode.$error" role="alert" multiple>-->
+                            <!--<div ng-message="required" class="my-message">You must supply a postal code.</div>-->
+                            <!--<div ng-message="pattern" class="my-message">That doesn't look like a valid postal-->
+                                <!--code.-->
+                            <!--</div>-->
+                            <!--<div ng-message="md-maxlength" class="my-message">-->
+                                <!--Don't use the long version silly...we don't need to be that specific...-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <label>City</label>
+                        <input ng-model="user.city">
                     </md-input-container>
 
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Country</label>
+                        <input ng-model="user.country">
+                    </md-input-container>
+
+                </div>
+
                     <md-radio-group ng-model="user.rating" class="md-block" flex-gt-sm layout-gt-sm="row" required>
-                        <label id="radiolabel">Ratings (Required)</label>
+                        <label id="radiolabel (Required)">Ratings </label>
                         <md-radio-button ng-repeat="d in radioData"
                                          ng-value="d.value" >
                             {{  d.label }}
                         </md-radio-button>
                     </md-radio-group>
-                </div>
+
 
         <md-input-container class="md-block">
             <label>FeedBack</label>
