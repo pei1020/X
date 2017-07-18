@@ -26,32 +26,52 @@ app.use('/api', router);
 //     });
 // });
 
+//get a specific document
 app.get('/infolist/:id', function(req, res){
     console.log('received a specific GET request');
-    // var id = req.params.id;
+    var id = req.params.id;
     console.log(req.params);
-    // db.infolist.findOne({_id: mongojs.ObjectId(id)}, function (err, lists) {
-    //     res.json(lists);
-    // });
-});
-
-
-app.get('/infolist', function(req, res){
-    var count = req.query.num;
-     console.log(count);
-    db.infolist.aggregate({$sort: {_id: -1}}, {$limit: + count}, function (err, lists) {
+    db.infolist.findOne({_id: mongojs.ObjectId(id)}, function (err, lists) {
         res.json(lists);
     });
 });
 
+//get the a restricted number of documents, showing the latest at the top
+app.get('/infolist', function(req, res){
 
+    var count;
+
+    if(req.query.skip === 'n'){
+        console.log('with city and country');
+        db.infolist.find({$or:[{"city": {$exists:true}},{"country": {$exists:true}}]}, function(err, lists){
+        res.json(lists);
+    });
+    }
+
+    else{
+        count = req.query.num;
+        db.infolist.aggregate({$sort: {_id: -1}}, {$limit: + count}, function (err, lists) {
+            res.json(lists);
+        });
+    }
+
+    // console.log(req.query.num)
+    // console.log(count);
+
+
+
+
+});
+
+//inserting new
 app.post('/infolist', function(req, res){
-    console.log(req.body);
+    // console.log('POST request');
     db.infolist.insert(req.body, function(err,lists){
         res.json(lists);
     });
 });
 
+//updating
 app.put('/infolist/:id', function (req, res) {
     var id = req.params.id;
     console.log(req.body.name);
