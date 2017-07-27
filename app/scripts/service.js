@@ -1,15 +1,25 @@
 'use strict';
 
 angular.module('myService', [])
-    .service('ServiceCtrl', ['$http', function($http){
+    .service('ServiceCtrl',  ['$http', '$rootScope', function($http, $rootScope){
 
-        var count = 6;
+        var count = 8;
+
+        this.shared = {
+            "mapValue": ""
+        };
+
+
+        this.data = {
+            "flag": false
+        };
+
 
         this.refresh = function(callback){
             $http({
                 method: 'GET',
                 url: '/infolist',
-                params: {"num": 3, "skip": 's'}
+                params: {"num": 4, "skip": 's'}
             }).then(function successCallback(response) {
                 // count = 6;
                 callback(response.data);
@@ -35,7 +45,7 @@ angular.module('myService', [])
                 url: '/infolist',
                 params: {"num": count, "skip": 's'}
             }).then(function successCallback(response) {
-                count = count + 3;
+                count = count + 4;
                 callback(response.data);
             });
         };

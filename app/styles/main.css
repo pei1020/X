@@ -99,19 +99,31 @@
 
 .formcontainer {
   padding-top: 1%;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 15%;
+  margin-right: 13%;
   padding-bottom: 10%;
   height: auto;
-  width: 80%;
+  width: 70%;
 }
 
 
+.pageTitle{
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.cardDisplay{
+  width: 45%;
+  height: auto;
+  margin-left: 25%;
+}
 /*
  * IDs
  */
 #radiolabel{
   color: #A9A9A9;
+  margin-right: 10px;
 }
 
 #optionlabel{
@@ -127,12 +139,27 @@
 }
 
 #map {
-  width: 100%;
-  height: 400px;
+  width: 68%;
+  height: 540px;
   background-color: grey;
+  margin: auto;
+  margin-top: 30px;
 }
 
 
+#dropdown{
+  width: 10%;
+  height: auto;
+  margin-left: 45%;
+  margin-top: 2%;
+}
+
+
+
+.tabLogo{
+  height: 60%;
+  width: 60%;
+}
 /*
  * tags
  */
@@ -152,4 +179,5 @@ table{
 md-content {
   height: 700px;
 }
+
 

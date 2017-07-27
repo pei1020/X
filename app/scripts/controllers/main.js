@@ -21,6 +21,23 @@ angular.module('myController', [])
           { label: '5', value: 5 }
       ];
 
+      $scope.items = [
+          {name: "Silver", value: "silver"},
+          {name: "Retro", value: "retro"},
+          {name: "Night Mode", value: "night"}
+      ];
+
+      $scope.item = {};
+      $scope.item.value = "default";
+
+
+      $scope.$watch("item.value", function (newValue) {
+          $scope.item.value = newValue;
+          // console.log($scope.item.value);
+          ServiceCtrl.shared.mapValue= $scope.item.value;
+          // console.log(ServiceCtrl.shared.mapValue);
+      });
+
       //refresh the page
        ServiceCtrl.refresh(function(response){
            $scope.lists= response;
@@ -32,6 +49,7 @@ angular.module('myController', [])
           ServiceCtrl.refresh(function(response){
               $scope.lists = response;
           });
+
           this.user = {}; //changed this to object from array!!!!
           this.userForm.$setUntouched();
           this.userForm.$setPristine();

@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-    <!-- endbuild -->
+     <!--endbuild -->
   </head>
-  <body ng-controller="MainCtrl">
+  <body ng-controller="MainCtrl as main">
   <!--tabs-->
   <div ng-cloak >
     <md-content>
       <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="Home">
+
+        <md-tab>
+          <img class = "tabLogo" src = "../images/yeoman.png">
+        </md-tab>
+        <md-tab label="Feedback">
           <md-content class="md-padding">
             <div ng-include src="'views/home.html'"></div>
           </md-content>
@@ -80,11 +84,10 @@
   <script src="scripts/service.js"></script>
   <script src="scripts/app.js"></script>
   <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>-->
-  <!--<script src="http://rawgit.com/nmccready/angular-simple-logger/master/dist/angular-simple-logger.js"></script>-->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.2.1/angular-google-maps.min.js"></script>-->
   <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVOmjZXcVrOIKxMBea8fod4jX-9G3j1zE&callback&libraries=geometry,places">
   </script>
-        <!-- endbuild -->
+
+  <!-- endbuild -->
 </body>
 </html>

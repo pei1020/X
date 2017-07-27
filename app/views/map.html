@@ -1,3 +1,21 @@
-<h3 >Our Users</h3>
-<div id="map" ng-controller="MapCtrl" center="map.center" options="options" zoom="map.zoom">
+<!--<h3 class="pageTitle">Our Users</h3>-->
+<!--<div id="style-selector-control"  class="map-control">-->
+    <!--<select id="style-selector" class="selector-control">-->
+        <!--<option value="silver">Silver</option>-->
+        <!--<option value="night">Night mode</option>-->
+        <!--<option value="retro" selected="selected">Retro</option>-->
+    <!--</select>-->
+<!--</div>-->
+
+<div>
+        <md-input-container  class="md-block" flex-gt-sm id = "dropdown">
+            <md-select ng-model="item.value" placeholder="Map Style" class="md-no-underline">
+                <md-option ng-value = "item.value" ng-repeat="item in items">{{item.name}}</md-option>
+            </md-select>
+        </md-input-container>
+
+        <div id="map" center="map.center" options="options" zoom="map.zoom" ng-controller="MapCtrl as child">
+        </div>
+
 </div>
+

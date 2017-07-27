@@ -1,23 +1,43 @@
-<div>
-    <img src = "../images/yeoman.png">
+<div class = "cardDisplay">
+    <!--<img src = "../images/yeoman.png">-->
     <!--<div>{{avgRating | number:1}} <span class = "glyphicon glyphicon-star"></span></div>-->
-    <table class="table table-stripped">
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Entered Date</th>
-            <th>Rating</th>
-            <th>Feedback</th>
-        </tr>
+    <!--<table class="table table-stripped">-->
+        <!--<tr>-->
+            <!--<th>First Name</th>-->
+            <!--<th>Last Name</th>-->
+            <!--<th>Entered Date</th>-->
+            <!--<th>Rating</th>-->
+            <!--<th>Feedback</th>-->
+        <!--</tr>-->
 
-        <tr ng-repeat = "list in lists">
-            <td>{{list.firstName}}</td>
-            <td>{{list.lastName}}</td>
-            <td>{{list.submissionDate | date: 'yyyy-MM-dd'}}</td>
-            <td>{{list.rating}}</td>
-            <td>{{list.feedback}}</td>
-        </tr>
-    </table>
+        <!--<tr ng-repeat = "list in lists">-->
+            <!--<td>{{list.firstName}}</td>-->
+            <!--<td>{{list.lastName}}</td>-->
+            <!--<td>{{list.submissionDate | date: 'yyyy-MM-dd'}}</td>-->
+            <!--<td>{{list.rating}}</td>-->
+            <!--<td>{{list.feedback}}</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+
+
+
+    <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch ng-repeat = "list in lists">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-subhead"><span class="glyphicon glyphicon-user"></span>{{list.firstName + " " +list.lastName}} </span>
+                <span class="md-subhead" ><span class = "glyphicon glyphicon-time"> </span>{{list.submissionDate | date: 'yyyy-MM-dd'}}</span>
+                <span class="md-subhead"><span class = "glyphicon glyphicon-star"></span>{{" "+list.rating}} </span>
+                <span class="md-subhead"><span class="glyphicon glyphicon-pencil"></span>{{" "+list.feedback}} </span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"></div>
+            </md-card-title-media>
+        </md-card-title>
+        <!--<md-card-content>-->
+            <!--<span class="glyphicon glyphicon-pencil"></span>-->
+            <!--{{list.feedback}}-->
+        <!--</md-card-content>-->
+    </md-card>
     <button class="btn" id = "viewmorebtn" ng-click="more()">View More</button>
 </div>
 
